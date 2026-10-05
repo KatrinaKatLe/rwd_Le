@@ -1,0 +1,71 @@
+
+/* =========================
+     MOBILE FIRST STYLES
+     These styles apply to small screens first.
+     Larger screens are adjusted later with media queries.
+     ========================= */
+
+  /* Reset default margin and set base font + background */
+  body {
+    margin: 0;                                  /* Removes browser default spacing */
+    font-family: sans-serif;  /* Clean sans-serif stack */
+    background: #bababa;                         /* Light gray base background */
+  }
+
+  /* Main page container */
+  .container {
+    max-width: 1100px;     /* Stops content stretching too wide on big screens */
+    margin: 40px auto;     /* 40px top/bottom, auto left/right = centered */
+    padding: 20px;         /* Space inside the container */
+    text-align: center;    /* Centers text content */
+  }
+
+  /* Flexbox wrapper for the layout */
+  .wrapper {
+    display: flex;            /* Flex container */
+    flex-direction: column;   /* MOBILE FIRST: stack items vertically */
+    gap: 20px;                /* Even spacing between items */
+  }
+
+  /* Individual content sections (cards) */
+  .section {
+    background: #e974f6;         /* White card background */
+    padding: 20px;            /* Inner spacing for readability */
+    border-radius: 12px;      /* Soft rounded corners */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Subtle depth */
+  }
+
+  /* =========================
+     TABLET (600px and up)
+     ========================= */
+  @media (min-width: 600px) {
+    body { background: #96cbfc; }   /* Confirms the tablet breakpoint is active */
+
+    .wrapper {
+      flex-direction: row;     /* Switch from vertical stack to a row */
+      flex-wrap: wrap;         /* Let items wrap to the next row */
+      justify-content: center; /* Center items horizontally */
+    }
+
+    .section { width: 45%; }   /* ~2 columns (45% leaves room for the gap) */
+  }
+
+  /* =========================
+     DESKTOP (900px and up)
+     ========================= */
+  @media (min-width: 900px) {
+    body { background: #d8ffd8; }   /* Confirms the desktop breakpoint is active */
+
+    .section { width: 30%; }        /* ~3 columns across */
+  }
+
+  /* =========================
+     LARGE DESKTOP (1200px and up)
+     ========================= */
+  @media (min-width: 1200px) {
+    body { background: #ffe0f0; }   /* Confirms the large-desktop breakpoint is active */
+
+    /* ~4 columns. 22% (not 25%) leaves room for the gap,
+       padding, and rounding so the row never overflows. */
+    .section { width: 22%; }
+  }
